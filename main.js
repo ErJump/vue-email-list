@@ -11,9 +11,15 @@ const app = new Vue ({
                 console.log(response.data.response);
                 this.emailList.push(response.data.response);
             });
-        }
+        },
+        //ripete la funzione pushRandomEmail per 10 volte
+        pushTenRandomEmails: function() {
+            for (let i = 0; i < 10; i++) {
+                this.pushRandomEmail();
+            }
+        },
     },
     created() {
-        this.pushRandomEmail();
+        this.pushTenRandomEmails();
     }
 })
